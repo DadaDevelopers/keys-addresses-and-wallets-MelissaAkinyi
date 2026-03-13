@@ -1,0 +1,51 @@
+Assignment 2
+
+1. Generated Bitcoin Addresses
+
+Legacy Address
+Command:
+bitcoin-cli -regtest getnewaddress "" legacy
+
+Address:
+bcrt1qs5wfgqhe5nfdja02axmk26wq5mqyhmtwq70rt8
+
+
+Bech32 Address
+Command:
+bitcoin-cli -regtest getnewaddress "" bech32
+
+Address:
+bcrt1qdczwf0l7sjkqa0j8vgfyzpwcmevvugm4r3gmf
+
+
+Bech32m Address
+Command:
+bitcoin-cli -regtest getnewaddress "" bech32m
+
+Address:
+bcrt1qqn0plg9ss0aeay5f47ck6mqtdc62a06ulmnys
+
+
+
+2. Difference Between Hardened and Non-Hardened Keys
+
+Hardened keys are derived in a way that requires the parent private key.
+This makes them more secure because someone with only the public key
+cannot derive child private keys.
+
+Non-hardened keys can be derived using the parent public key.
+This allows systems like watch-only wallets to generate addresses
+without having access to the private key.
+
+
+3. Why Wallet Developers Prefer Deterministic Wallets
+
+Deterministic wallets generate all keys and addresses from a single master seed.
+
+Advantages:
+- Only one backup (the seed phrase) is required
+- New addresses can always be recreated
+- Wallet recovery is simple
+
+Non-deterministic wallets generate random keys independently,
+so every key would need to be backed up separately.
